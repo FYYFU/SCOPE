@@ -1,0 +1,43 @@
+bash init_summ.sh \
+    3 \
+    SnapKV \
+    128 \
+    flash_attention_2 \
+    meta-llama/Llama-3.1-8B-Instruct \
+    None \
+    1 \
+    0 \
+    ./results/
+
+bash init_summ.sh \
+    3 \
+    SnapKV \
+    256 \
+    flash_attention_2 \
+    meta-llama/Llama-3.1-8B-Instruct \
+    None \
+    1 \
+    0 \
+    ./results/
+
+bash init_summ.sh \
+    3 \
+    SnapKV \
+    512 \
+    flash_attention_2 \
+    meta-llama/Llama-3.1-8B-Instruct \
+    None \
+    1 \
+    0 \
+    ./results/
+
+bash init_summ.sh \
+    3 \
+    SnapKV \
+    1024 \
+    flash_attention_2 \
+    meta-llama/Llama-3.1-8B-Instruct \
+    None \
+    1 \
+    0 \
+    ./results/
