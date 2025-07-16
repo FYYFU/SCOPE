@@ -6,8 +6,6 @@ import nltk
 from tqdm import tqdm
 import argparse
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--gpu', default=0, type=str)
@@ -38,6 +36,7 @@ if __name__ == '__main__':
         index += 1
 
     avg_prob = sum(total_probs) / len(total_probs)
+    print(f'data path: {data_path}')
     print(f'average prob: {avg_prob}')
 
     # # Alternatively, you can use our Bespoke-MiniCheck-7B model (7B) for evaluation. 
