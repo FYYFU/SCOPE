@@ -2,7 +2,6 @@
 __pycache__/
 
 # 忽略结果文件夹
-results*/
 attention*/
 others/
 scripts/

@@ -1,13 +1,24 @@
 bash init_summ.sh \
     4 \
     SnapKV \
+    2048 \
+    flash_attention_2 \
+    meta-llama/Llama-3.1-8B-Instruct \
+    slide \
+    256 \
+    128 \
+    ./results_ag/
+
+bash init_summ.sh \
+    4 \
+    SnapKV \
     64 \
     flash_attention_2 \
     meta-llama/Llama-3.1-8B-Instruct \
     slide \
     256 \
     128 \
-    ./results/
+    ./results_ag/
 
 
 bash init_summ.sh \
@@ -19,7 +30,7 @@ bash init_summ.sh \
     slide \
     256 \
     128 \
-    ./results/
+    ./results_ag/
 
 bash init_summ.sh \
     4 \
@@ -30,7 +41,7 @@ bash init_summ.sh \
     slide \
     256 \
     128 \
-    ./results/
+    ./results_ag/
 
 bash init_summ.sh \
     4 \
@@ -41,7 +52,7 @@ bash init_summ.sh \
     slide \
     256 \
     128 \
-    ./results/
+    ./results_ag/
 
 bash init_summ.sh \
     4 \
@@ -52,4 +63,4 @@ bash init_summ.sh \
     slide \
     256 \
     128 \
-    ./results/
+    ./results_ag/

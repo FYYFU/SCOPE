@@ -1,3 +1,17 @@
+
+bash init_summ.sh \
+    2 \
+    pyramidkv \
+    2048 \
+    flash_attention_2 \
+    meta-llama/Llama-3.1-8B-Instruct \
+    None \
+    1 \
+    0 \
+    ./results_ag/
+
+
+
 bash init_summ.sh \
     2 \
     pyramidkv \
@@ -7,8 +21,7 @@ bash init_summ.sh \
     None \
     1 \
     0 \
-    ./results/
-
+    ./results_ag/
 
 bash init_summ.sh \
     2 \
@@ -19,7 +32,7 @@ bash init_summ.sh \
     None \
     1 \
     0 \
-    ./results/
+    ./results_ag/
 
 bash init_summ.sh \
     2 \
@@ -30,7 +43,7 @@ bash init_summ.sh \
     None \
     1 \
     0 \
-    ./results/
+    ./results_ag/
 
 bash init_summ.sh \
     2 \
@@ -41,7 +54,7 @@ bash init_summ.sh \
     None \
     1 \
     0 \
-    ./results/
+    ./results_ag/
 
 bash init_summ.sh \
     2 \
@@ -52,4 +65,8 @@ bash init_summ.sh \
     None \
     1 \
     0 \
-    ./results/
+    ./results_ag/
+
+
+
+
