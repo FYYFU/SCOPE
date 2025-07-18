@@ -1,10 +1,10 @@
 
 bash init_summ.sh \
-    2 \
+    0 \
     pyramidkv \
     2048 \
     flash_attention_2 \
-    mistralai/Mistral-7B-Instruct-v0.3 \
+    meta-llama/Llama-3.2-3B-Instruct \
     None \
     1 \
     0 \
@@ -13,55 +13,55 @@ bash init_summ.sh \
 
 
 bash init_summ.sh \
-    2 \
+    0 \
     pyramidkv \
     64 \
     flash_attention_2 \
-    mistralai/Mistral-7B-Instruct-v0.3 \
+    meta-llama/Llama-3.2-3B-Instruct \
     None \
     1 \
     0 \
     ./results_ag/
 
 bash init_summ.sh \
-    2 \
+    0 \
     pyramidkv \
     128 \
     flash_attention_2 \
-    mistralai/Mistral-7B-Instruct-v0.3 \
+    meta-llama/Llama-3.2-3B-Instruct \
     None \
     1 \
     0 \
     ./results_ag/
 
 bash init_summ.sh \
-    2 \
+    0 \
     pyramidkv \
     256 \
     flash_attention_2 \
-    mistralai/Mistral-7B-Instruct-v0.3 \
+    meta-llama/Llama-3.2-3B-Instruct \
     None \
     1 \
     0 \
     ./results_ag/
 
 bash init_summ.sh \
-    2 \
+    0 \
     pyramidkv \
     512 \
     flash_attention_2 \
-    mistralai/Mistral-7B-Instruct-v0.3 \
+    meta-llama/Llama-3.2-3B-Instruct \
     None \
     1 \
     0 \
     ./results_ag/
 
 bash init_summ.sh \
-    2 \
+    0 \
     pyramidkv \
     1024 \
     flash_attention_2 \
-    mistralai/Mistral-7B-Instruct-v0.3 \
+    meta-llama/Llama-3.2-3B-Instruct \
     None \
     1 \
     0 \

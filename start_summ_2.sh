@@ -3,7 +3,7 @@ bash init_summ.sh \
     SnapKV \
     2048 \
     flash_attention_2 \
-    meta-llama/Llama-3.1-8B-Instruct \
+    mistralai/Mistral-7B-Instruct-v0.3 \
     None \
     1 \
     0 \
@@ -15,7 +15,7 @@ bash init_summ.sh \
     SnapKV \
     64 \
     flash_attention_2 \
-    meta-llama/Llama-3.1-8B-Instruct \
+    mistralai/Mistral-7B-Instruct-v0.3 \
     None \
     1 \
     0 \
@@ -26,7 +26,7 @@ bash init_summ.sh \
     SnapKV \
     128 \
     flash_attention_2 \
-    meta-llama/Llama-3.1-8B-Instruct \
+    mistralai/Mistral-7B-Instruct-v0.3 \
     None \
     1 \
     0 \
@@ -37,7 +37,7 @@ bash init_summ.sh \
     SnapKV \
     256 \
     flash_attention_2 \
-    meta-llama/Llama-3.1-8B-Instruct \
+    mistralai/Mistral-7B-Instruct-v0.3 \
     None \
     1 \
     0 \
@@ -48,7 +48,7 @@ bash init_summ.sh \
     SnapKV \
     512 \
     flash_attention_2 \
-    meta-llama/Llama-3.1-8B-Instruct \
+    mistralai/Mistral-7B-Instruct-v0.3 \
     None \
     1 \
     0 \
@@ -59,7 +59,7 @@ bash init_summ.sh \
     SnapKV \
     1024 \
     flash_attention_2 \
-    meta-llama/Llama-3.1-8B-Instruct \
+    mistralai/Mistral-7B-Instruct-v0.3 \
     None \
     1 \
     0 \
