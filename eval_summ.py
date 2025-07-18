@@ -66,6 +66,8 @@ if __name__ == '__main__':
         ]
     
     methods = "pyramidkv_1-0"
+    # methods = 'SnapKV_1-0'
+    # methods = 'SnapKV_128-64'
 
     results_list = [
         ["dataset"],

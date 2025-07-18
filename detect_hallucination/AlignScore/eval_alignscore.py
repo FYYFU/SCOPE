@@ -1,10 +1,11 @@
-from minicheck.minicheck import MiniCheck
 import os
 import json
 import ipdb
 import nltk
 from tqdm import tqdm
 import argparse
+from alignscore import AlignScore
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -15,11 +16,13 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
-    scorer = MiniCheck(model_name='Bespoke-MiniCheck-7B', tensor_parallel_size=1, cache_dir='./ckpts', enable_prefix_caching=True)
-    data_path = f'/home/greenland-user/SCOPE/results_ag/llama-3.1-8b-instruct_{args.kv_size}/{args.dataset}/{args.method}.json'
-
+    device="cuda:" + args.gpu
+    scorer = AlignScore(model='roberta-large', batch_size=128, device=device, ckpt_path='./ckpts/AlignScore-large.ckpt', evaluation_mode='nli_sp')
     total_probs = []
     total_data = []
+
+    data_path = f'/home/greenland-user/SCOPE/results/llama-3.1-8b-instruct_{args.kv_size}/{args.dataset}/{args.method}.json'
+
     with open(data_path, 'r') as f:
         for line in f.readlines():
             d = json.loads(line.strip())
@@ -27,29 +30,19 @@ if __name__ == '__main__':
     index = 0
 
     for d in tqdm(total_data, total=len(total_data), desc='Eval'):
-        claims = nltk.sent_tokenize(d['pred'])
         # claims = nltk.sent_tokenize(d['answers'][0])
+        claims = nltk.sent_tokenize(d['pred'])
         doc = d['context']
         try:
-            pred_label, raw_prob, _, _ = scorer.score(docs=[doc for i in range(len(claims))], claims=claims)
+            raw_prob = scorer.score(contexts=[doc for _ in range(len(claims))], claims=claims)
             final_prob = sum(raw_prob) / len(raw_prob)
             total_probs.append(final_prob)
             print(f'index: {index}. Score: {final_prob}')
             index += 1
         except:
+            print(f'Error occurs: {index}')
             continue
 
     avg_prob = sum(total_probs) / len(total_probs)
     print(f'data path: {data_path}')
     print(f'average prob: {avg_prob}')
-
-    # # Alternatively, you can use our Bespoke-MiniCheck-7B model (7B) for evaluation. 
-    # # Bespoke-MiniCheck-7B is the most performant fact-checking model 
-    # # in the MiniCheck series AND is the current SOTA regardless of size.
-    # # It's also commercially useable! 
-    # # For commercial licensing, please contact company@bespokelabs.ai
-    # scorer = MiniCheck(model_name='Bespoke-MiniCheck-7B', enable_prefix_caching=False, cache_dir='./ckpts')
-    # pred_label, raw_prob, _, _ = scorer.score(docs=[doc, doc], claims=[claim_1, claim_2])
-
-    # print(pred_label) # [1, 0]
-    # print(raw_prob)   # [0.9840446675150499, 0.010986349594852094]

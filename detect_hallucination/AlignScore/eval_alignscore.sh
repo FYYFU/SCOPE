@@ -1,31 +1,6 @@
-# kv_size=(64 128 256 512 1024 2048)
-# gpus=(0 1 2 3 4 5 6 7)
-
-# for((i=0;i<6;i++));do
-#     kv=${kv_size[i]}
-#     gpu=${gpus[i]}
-#     python3 eval_minicheck.py --gpu 0 --dataset gov_report --method SnapKV_1-0 --kv_size $kv 
-#     python3 eval_minicheck.py --gpu 0 --dataset multi_news --method SnapKV_1-0 --kv_size $kv  
-#     python3 eval_minicheck.py --gpu 0 --dataset qmsum --method SnapKV_1-0 --kv_size $kv 
-
-#     python3 eval_minicheck.py --gpu 0 --dataset gov_report --method pyramidkv_1-0 --kv_size $kv 
-#     python3 eval_minicheck.py --gpu 0 --dataset multi_news --method pyramidkv_1-0 --kv_size $kv  
-#     python3 eval_minicheck.py --gpu 0 --dataset qmsum --method pyramidkv_1-0 --kv_size $kv  
-
-#     python3 eval_minicheck.py --gpu 0 --dataset gov_report --method SnapKV_128-64 --kv_size $kv  
-#     python3 eval_minicheck.py --gpu 0 --dataset multi_news --method SnapKV_128-64 --kv_size $kv  
-#     python3 eval_minicheck.py --gpu 0 --dataset qmsum --method SnapKV_128-64 --kv_size $kv  
-
-#     python3 eval_minicheck.py --gpu 0 --dataset gov_report --method SnapKV_256-128 --kv_size $kv  
-#     python3 eval_minicheck.py --gpu 0 --dataset multi_news --method SnapKV_256-128 --kv_size $kv  
-#     python3 eval_minicheck.py --gpu 0 --dataset qmsum --method SnapKV_256-128 --kv_size $kv  
-# done
-
-
-
 #!/usr/bin/env bash
 # run_eval_queue.sh
-# 每张 GPU 一次仅跑一个 eval_minicheck 任务；自动排队全部组合。
+# 每张 GPU 一次仅跑一个 eval_alignscore 任务；自动排队全部组合。
 
 set -u  # 如需严格出错退出可加：set -euo pipefail
 
@@ -67,7 +42,7 @@ launch_task () {
   echo "$(date '+%F %T') [LAUNCH] gpu=$gpu kv=$kv dataset=$dataset method=$method -> $log_file"
 
   (
-    python3 eval_minicheck.py --gpu "$gpu" --dataset "$dataset" --method "$method" --kv_size "$kv"
+    python3 eval_alignscore.py --gpu "$gpu" --dataset "$dataset" --method "$method" --kv_size "$kv"
   ) >"$log_file" 2>&1 &
 
   local pid=$!
